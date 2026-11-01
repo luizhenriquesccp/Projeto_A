@@ -45,21 +45,25 @@
           <button
             class="account-menu-toggle dropdown-toggle"
             type="button"
-            id="accountMenu"
+            id="profileAccountMenu"
             data-bs-toggle="dropdown"
             aria-expanded="false"
           >
-            <img src="../assets/img/notperfil.png" alt="" />
-            <span>Usuário</span>
+            <span class="profile-mini-avatar" aria-hidden="true">LS</span>
+            <span>Lucas</span>
           </button>
-          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="accountMenu">
-            <li><a class="dropdown-item" href="#login">Fazer login</a></li>
-            <li><a class="dropdown-item" href="#cadastro">Cadastrar-se</a></li>
+          <ul
+            class="dropdown-menu dropdown-menu-end"
+            aria-labelledby="profileAccountMenu"
+          >
+            <li><a class="dropdown-item" href="user.html">Meu perfil</a></li>
+            <li><a class="dropdown-item" href="index.html">Sair do perfil</a></li>
           </ul>
         </div>
-        <a class="btn btn-warning" href="#planos">PLANOS</a>
+        <a class="btn btn-warning" href="index.html#planos">PLANOS</a>
       </nav>
     </header>
+    <br />
     <main id="inicio">
       <section class="highlights" aria-label="Destaques da empresa">
         <div

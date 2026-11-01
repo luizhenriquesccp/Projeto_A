@@ -1,0 +1,683 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Conheça o perfil de Lucas Silva na comunidade Action."
+    />
+    <title>Perfil de Lucas Silva | Action</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../assets/css/style.css" />
+  </head>
+  <body class="profile-page">
+    <header class="site-header">
+      <nav class="site-nav" aria-label="Navegação principal">
+        <a class="company-name" href="index.html" aria-label="Action — início">
+          <img src="../assets/img/logo.png" alt="Action" />
+        </a>
+        <ul class="nav-options">
+          <li><a href="index.html">Início</a></li>
+          <li><a href="index.html#sobre">Comunidade</a></li>
+          <li><a href="index.html#servicos">Oportunidades</a></li>
+          <li><a href="index.html#contato">Contato</a></li>
+        </ul>
+        <form class="site-search" role="search" id="profileSearch">
+          <label class="visually-hidden" for="profileSearchInput">
+            Buscar no perfil
+          </label>
+          <input
+            class="site-search-input"
+            type="search"
+            id="profileSearchInput"
+            placeholder="Buscar no perfil..."
+            autocomplete="off"
+          />
+          <button class="site-search-button" type="submit" aria-label="Buscar">
+            <svg aria-hidden="true" viewBox="0 0 24 24">
+              <circle cx="10.8" cy="10.8" r="6.8"></circle>
+              <path d="m16 16 5 5"></path>
+            </svg>
+          </button>
+          <span class="visually-hidden" id="profileSearchStatus" role="status"></span>
+        </form>
+        <div class="dropdown account-menu">
+          <button
+            class="account-menu-toggle dropdown-toggle"
+            type="button"
+            id="profileAccountMenu"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <span class="profile-mini-avatar" aria-hidden="true">LS</span>
+            <span>Lucas</span>
+          </button>
+          <ul
+            class="dropdown-menu dropdown-menu-end"
+            aria-labelledby="profileAccountMenu"
+          >
+            <li><a class="dropdown-item" href="user.html">Meu perfil</a></li>
+            <li><a class="dropdown-item" href="index.html">Sair do perfil</a></li>
+          </ul>
+        </div>
+        <a class="btn btn-warning" href="index.html#planos">PLANOS</a>
+      </nav>
+    </header>
+
+    <main class="profile-shell">
+      <section class="profile-card" aria-labelledby="profileName">
+        <div class="profile-cover">
+          <span class="profile-cover-label">SEU ESPAÇO NA COMUNIDADE</span>
+          <span class="profile-cover-mark" aria-hidden="true">A</span>
+        </div>
+        <div class="profile-identity">
+          <div class="profile-avatar" aria-label="Foto de perfil de Lucas Silva">
+            LS
+            <span class="profile-online-indicator" aria-label="Online agora"></span>
+          </div>
+          <div class="profile-heading">
+            <p class="profile-eyebrow">PERFIL DA COMUNIDADE</p>
+            <h1 id="profileName">Lucas Silva</h1>
+            <p class="profile-role" id="profileRole">
+              Designer de produto <span aria-hidden="true">·</span> São Paulo, SP
+            </p>
+            <p class="profile-connections">
+              <strong>248</strong> conexões <span aria-hidden="true">·</span>
+              <strong id="followerCount">1.204</strong> seguidores
+            </p>
+          </div>
+          <div class="profile-actions">
+            <button
+              class="btn btn-profile-primary"
+              type="button"
+              id="followButton"
+              aria-pressed="false"
+            >
+              Conectar-se
+            </button>
+            <button
+              class="btn btn-profile-secondary"
+              type="button"
+              data-bs-toggle="modal"
+              data-bs-target="#editProfileModal"
+            >
+              Editar perfil
+            </button>
+            <button
+              class="btn btn-profile-icon"
+              type="button"
+              id="shareProfileButton"
+              aria-label="Compartilhar perfil"
+              title="Compartilhar perfil"
+            >
+              <svg aria-hidden="true" viewBox="0 0 24 24">
+                <circle cx="18" cy="5" r="3"></circle>
+                <circle cx="6" cy="12" r="3"></circle>
+                <circle cx="18" cy="19" r="3"></circle>
+                <path d="m8.7 10.6 6.6-4.2M8.7 13.4l6.6 4.2"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <p class="profile-feedback" id="profileFeedback" role="status"></p>
+      </section>
+
+      <nav class="profile-tabs" aria-label="Seções do perfil">
+        <div class="nav nav-tabs" id="profileTabList" role="tablist">
+          <button
+            class="nav-link active"
+            id="overview-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#overview-panel"
+            type="button"
+            role="tab"
+            aria-controls="overview-panel"
+            aria-selected="true"
+          >
+            Visão geral
+          </button>
+          <button
+            class="nav-link"
+            id="posts-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#posts-panel"
+            type="button"
+            role="tab"
+            aria-controls="posts-panel"
+            aria-selected="false"
+          >
+            Publicações <span>3</span>
+          </button>
+          <button
+            class="nav-link"
+            id="equipment-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#equipment-panel"
+            type="button"
+            role="tab"
+            aria-controls="equipment-panel"
+            aria-selected="false"
+          >
+            Equipamentos
+          </button>
+          <button
+            class="nav-link"
+            id="schedule-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#schedule-panel"
+            type="button"
+            role="tab"
+            aria-controls="schedule-panel"
+            aria-selected="false"
+          >
+            Agenda
+          </button>
+        </div>
+      </nav>
+
+      <div class="profile-layout">
+        <div class="tab-content profile-main-content" id="profileTabContent">
+          <section
+            class="tab-pane fade show active"
+            id="overview-panel"
+            role="tabpanel"
+            aria-labelledby="overview-tab"
+            tabindex="0"
+          >
+            <article class="profile-panel about-panel">
+              <div class="panel-heading">
+                <div>
+                  <p class="panel-kicker">UM POUCO SOBRE MIM</p>
+                  <h2>Sobre</h2>
+                </div>
+                <span class="panel-heading-mark" aria-hidden="true">01</span>
+              </div>
+              <p class="profile-bio" id="profileBio">
+                Gosto de transformar ideias complexas em experiências simples e
+                cheias de significado. Trabalho com design de produto, pesquisa
+                com pessoas e prototipação — sempre curioso para aprender algo
+                novo e trocar referências pelo caminho.
+              </p>
+              <div class="profile-tags" aria-label="Áreas de interesse">
+                <span>Design de produto</span>
+                <span>Pesquisa UX</span>
+                <span>Prototipação</span>
+                <span>Tecnologia</span>
+              </div>
+            </article>
+
+            <article class="profile-panel featured-panel">
+              <div class="panel-heading">
+                <div>
+                  <p class="panel-kicker">EM DESTAQUE</p>
+                  <h2>Projetos e ideias</h2>
+                </div>
+                <a class="text-link" href="#posts-panel" data-profile-tab="posts-tab">
+                  Ver publicações <span aria-hidden="true">↗</span>
+                </a>
+              </div>
+              <div class="featured-project">
+                <div class="project-symbol" aria-hidden="true">
+                  <svg viewBox="0 0 48 48">
+                    <path d="M8 34.5 17.5 23l6.2 7.2 4.1-4.7L40 40H8z"></path>
+                    <circle cx="31.5" cy="15.5" r="4.5"></circle>
+                  </svg>
+                </div>
+                <div>
+                  <p class="project-category">PROJETO PESSOAL · 2026</p>
+                  <h3>Redesenhando o dia a dia</h3>
+                  <p>
+                    Um estudo sobre como pequenos detalhes podem deixar as
+                    ferramentas que usamos mais humanas.
+                  </p>
+                  <a class="text-link" href="#posts-panel" data-profile-tab="posts-tab">
+                    Conhecer o projeto <span aria-hidden="true">→</span>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <article class="profile-panel activity-panel">
+              <div class="panel-heading">
+                <div>
+                  <p class="panel-kicker">ATIVIDADE RECENTE</p>
+                  <h2>Últimas publicações</h2>
+                </div>
+                <a class="text-link" href="#posts-panel" data-profile-tab="posts-tab">
+                  Ver todas <span aria-hidden="true">↗</span>
+                </a>
+              </div>
+              <article class="activity-item">
+                <span class="activity-avatar" aria-hidden="true">LS</span>
+                <div>
+                  <p class="activity-meta">Lucas Silva <span>· há 2 dias</span></p>
+                  <p>
+                    Uma boa experiência começa quando a gente troca a pergunta
+                    “como funciona?” por “como isso pode ajudar?”.
+                  </p>
+                  <span class="activity-reaction">★ <span>18 pessoas gostaram</span></span>
+                </div>
+              </article>
+              <article class="activity-item">
+                <span class="activity-avatar activity-avatar-alt" aria-hidden="true">
+                  LS
+                </span>
+                <div>
+                  <p class="activity-meta">Lucas Silva <span>· há 1 semana</span></p>
+                  <p>
+                    Fechando mais uma etapa de pesquisa. Ouvir diferentes pontos
+                    de vista sempre muda o rumo — e quase sempre para melhor.
+                  </p>
+                  <span class="activity-reaction">★ <span>32 pessoas gostaram</span></span>
+                </div>
+              </article>
+            </article>
+          </section>
+
+          <section
+            class="tab-pane fade"
+            id="posts-panel"
+            role="tabpanel"
+            aria-labelledby="posts-tab"
+            tabindex="0"
+          >
+            <article class="profile-panel">
+              <div class="panel-heading">
+                <div>
+                  <p class="panel-kicker">IDEIAS EM MOVIMENTO</p>
+                  <h2>Publicações</h2>
+                </div>
+                <span class="panel-heading-mark" aria-hidden="true">03</span>
+              </div>
+              <div class="post-card">
+                <div class="post-author">
+                  <span class="activity-avatar" aria-hidden="true">LS</span>
+                  <div>
+                    <strong>Lucas Silva</strong>
+                    <span>Designer de produto · há 2 dias</span>
+                  </div>
+                </div>
+                <p>
+                  Uma boa experiência começa quando a gente troca a pergunta
+                  “como funciona?” por “como isso pode ajudar?”. Tenho tentado
+                  levar essa ideia para cada etapa dos projetos.
+                </p>
+                <div class="post-footer">
+                  <span>★ 18 curtidas</span>
+                  <span>4 comentários</span>
+                </div>
+              </div>
+              <div class="post-card">
+                <div class="post-author">
+                  <span class="activity-avatar activity-avatar-alt" aria-hidden="true">
+                    LS
+                  </span>
+                  <div>
+                    <strong>Lucas Silva</strong>
+                    <span>Designer de produto · há 1 semana</span>
+                  </div>
+                </div>
+                <p>
+                  Fechando mais uma etapa de pesquisa. Ouvir diferentes pontos
+                  de vista sempre muda o rumo — e quase sempre para melhor.
+                  Obrigado a todo mundo que participou!
+                </p>
+                <div class="post-footer">
+                  <span>★ 32 curtidas</span>
+                  <span>7 comentários</span>
+                </div>
+              </div>
+              <div class="post-card">
+                <div class="post-author">
+                  <span class="activity-avatar" aria-hidden="true">LS</span>
+                  <div>
+                    <strong>Lucas Silva</strong>
+                    <span>Designer de produto · há 2 semanas</span>
+                  </div>
+                </div>
+                <p>
+                  Um protótipo simples pode abrir conversas que uma apresentação
+                  inteira não consegue. Menos slides, mais experimentação.
+                </p>
+                <div class="post-footer">
+                  <span>★ 24 curtidas</span>
+                  <span>3 comentários</span>
+                </div>
+              </div>
+            </article>
+          </section>
+
+          <section
+            class="tab-pane fade"
+            id="equipment-panel"
+            role="tabpanel"
+            aria-labelledby="equipment-tab"
+            tabindex="0"
+          >
+            <article class="profile-panel">
+              <div class="panel-heading">
+                <div>
+                  <p class="panel-kicker">FERRAMENTAS DO DIA A DIA</p>
+                  <h2>Equipamentos</h2>
+                </div>
+                <span class="panel-heading-mark" aria-hidden="true">03</span>
+              </div>
+              <p class="panel-description">
+                O que uso para transformar ideias em projetos.
+              </p>
+              <div class="equipment-grid">
+                <article class="equipment-card">
+                  <span class="equipment-icon" aria-hidden="true">01</span>
+                  <p>ESTAÇÃO DE TRABALHO</p>
+                  <h3>Notebook profissional</h3>
+                  <span>Desenvolvimento e criação</span>
+                </article>
+                <article class="equipment-card">
+                  <span class="equipment-icon" aria-hidden="true">02</span>
+                  <p>CRIAÇÃO</p>
+                  <h3>Mesa digitalizadora</h3>
+                  <span>Desenho e prototipação</span>
+                </article>
+                <article class="equipment-card">
+                  <span class="equipment-icon" aria-hidden="true">03</span>
+                  <p>ÁUDIO</p>
+                  <h3>Fone de referência</h3>
+                  <span>Concentração e chamadas</span>
+                </article>
+              </div>
+            </article>
+          </section>
+
+          <section
+            class="tab-pane fade"
+            id="schedule-panel"
+            role="tabpanel"
+            aria-labelledby="schedule-tab"
+            tabindex="0"
+          >
+            <article class="profile-panel">
+              <div class="panel-heading">
+                <div>
+                  <p class="panel-kicker">PRÓXIMOS ENCONTROS</p>
+                  <h2>Agenda</h2>
+                </div>
+                <span class="panel-heading-mark" aria-hidden="true">02</span>
+              </div>
+              <p class="panel-description">
+                Eventos e momentos para aprender junto com a comunidade.
+              </p>
+              <div class="event-item">
+                <div class="event-date"><strong>12</strong><span>NOV</span></div>
+                <div>
+                  <p class="event-type">ENCONTRO DA COMUNIDADE</p>
+                  <h3>Design com propósito: conversas que viram produto</h3>
+                  <p>Quinta-feira, às 19h · Online</p>
+                </div>
+                <span class="event-status">Confirmado</span>
+              </div>
+              <div class="event-item">
+                <div class="event-date"><strong>21</strong><span>NOV</span></div>
+                <div>
+                  <p class="event-type">OFICINA</p>
+                  <h3>Prototipação rápida para novas ideias</h3>
+                  <p>Sábado, às 10h · São Paulo, SP</p>
+                </div>
+                <span class="event-status">Confirmado</span>
+              </div>
+            </article>
+          </section>
+        </div>
+
+        <aside class="profile-sidebar" aria-label="Informações do perfil">
+          <section class="profile-panel sidebar-panel">
+            <div class="panel-heading">
+              <div>
+                <p class="panel-kicker">CONECTE-SE</p>
+                <h2>Informações</h2>
+              </div>
+              <span class="sidebar-dot" aria-hidden="true"></span>
+            </div>
+            <dl class="profile-details">
+              <div>
+                <dt>LOCALIZAÇÃO</dt>
+                <dd>São Paulo, Brasil</dd>
+              </div>
+              <div>
+                <dt>ÁREA DE ATUAÇÃO</dt>
+                <dd>Design &amp; tecnologia</dd>
+              </div>
+              <div>
+                <dt>NA COMUNIDADE DESDE</dt>
+                <dd>Janeiro de 2024</dd>
+              </div>
+              <div>
+                <dt>IDIOMAS</dt>
+                <dd>Português · Inglês</dd>
+              </div>
+            </dl>
+          </section>
+          <section class="profile-panel sidebar-panel availability-panel">
+            <p class="panel-kicker">NOVAS CONEXÕES</p>
+            <h2>Vamos conversar?</h2>
+            <p>
+              Aberto a trocar ideias, conhecer projetos e colaborar com a
+              comunidade.
+            </p>
+            <a class="availability-link" href="mailto:lucas.silva@example.com">
+              Enviar uma mensagem <span aria-hidden="true">↗</span>
+            </a>
+          </section>
+          <div class="profile-footer-note">
+            <span class="footer-note-mark" aria-hidden="true">A</span>
+            <p>Um espaço para compartilhar o que move você.</p>
+          </div>
+        </aside>
+      </div>
+    </main>
+
+    <div
+      class="modal fade"
+      id="editProfileModal"
+      tabindex="-1"
+      aria-labelledby="editProfileTitle"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content profile-modal">
+          <form id="editProfileForm">
+            <div class="modal-header">
+              <div>
+                <p class="panel-kicker">SEU PERFIL, DO SEU JEITO</p>
+                <h2 class="modal-title" id="editProfileTitle">Editar perfil</h2>
+              </div>
+              <button
+                type="button"
+                class="btn-close btn-close-white"
+                data-bs-dismiss="modal"
+                aria-label="Fechar"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <label class="profile-form-label" for="editName">Nome completo</label>
+              <input
+                class="form-control profile-form-control"
+                id="editName"
+                name="name"
+                value="Lucas Silva"
+                maxlength="70"
+                required
+              />
+              <label class="profile-form-label" for="editRole">Profissão e cidade</label>
+              <input
+                class="form-control profile-form-control"
+                id="editRole"
+                name="role"
+                value="Designer de produto · São Paulo, SP"
+                maxlength="100"
+                required
+              />
+              <label class="profile-form-label" for="editBio">Sobre você</label>
+              <textarea
+                class="form-control profile-form-control"
+                id="editBio"
+                name="bio"
+                rows="5"
+                maxlength="500"
+                required
+              >Gosto de transformar ideias complexas em experiências simples e cheias de significado. Trabalho com design de produto, pesquisa com pessoas e prototipação — sempre curioso para aprender algo novo e trocar referências pelo caminho.</textarea>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-profile-secondary"
+                data-bs-dismiss="modal"
+              >
+                Cancelar
+              </button>
+              <button class="btn btn-profile-primary" type="submit">
+                Salvar alterações
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      const profileFeedback = document.querySelector("#profileFeedback");
+      const profileName = document.querySelector("#profileName");
+      const profileRole = document.querySelector("#profileRole");
+      const profileBio = document.querySelector("#profileBio");
+      const editProfileForm = document.querySelector("#editProfileForm");
+      const editProfileModal = document.querySelector("#editProfileModal");
+
+      editProfileModal.addEventListener("show.bs.modal", () => {
+        editProfileForm.elements.name.value = profileName.textContent.trim();
+        editProfileForm.elements.role.value = profileRole.textContent
+          .replace(/\s+/g, " ")
+          .trim();
+        editProfileForm.elements.bio.value = profileBio.textContent
+          .replace(/\s+/g, " ")
+          .trim();
+      });
+
+      editProfileForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const formData = new FormData(editProfileForm);
+        const name = formData.get("name").trim();
+        const role = formData.get("role").trim();
+        const bio = formData.get("bio").trim();
+
+        if (!name || !role || !bio) {
+          profileFeedback.textContent = "Preencha todos os campos para salvar.";
+          return;
+        }
+
+        profileName.textContent = name;
+        profileRole.textContent = role;
+        profileBio.textContent = bio;
+        bootstrap.Modal.getOrCreateInstance(editProfileModal).hide();
+        profileFeedback.textContent = "Perfil atualizado nesta visualização.";
+      });
+
+      document.querySelector("#followButton").addEventListener("click", (event) => {
+        const button = event.currentTarget;
+        const following = button.getAttribute("aria-pressed") === "true";
+        button.setAttribute("aria-pressed", String(!following));
+        button.textContent = following ? "Conectar-se" : "Conectado";
+        profileFeedback.textContent = following
+          ? "Você deixou de seguir este perfil."
+          : "Você está conectado a este perfil.";
+      });
+
+      document
+        .querySelector("#shareProfileButton")
+        .addEventListener("click", async () => {
+          const shareData = {
+            title: document.title,
+            text: "Conheça o perfil de Lucas Silva na comunidade Action.",
+            url: window.location.href,
+          };
+
+          try {
+            if (navigator.share) {
+              await navigator.share(shareData);
+              profileFeedback.textContent = "Perfil compartilhado.";
+            } else if (navigator.clipboard) {
+              await navigator.clipboard.writeText(shareData.url);
+              profileFeedback.textContent = "Link do perfil copiado.";
+            } else {
+              profileFeedback.textContent = `Compartilhe este link: ${shareData.url}`;
+            }
+          } catch (error) {
+            if (error.name !== "AbortError") {
+              profileFeedback.textContent =
+                "Não foi possível compartilhar o perfil agora.";
+            }
+          }
+        });
+
+      document.querySelector("#profileSearch").addEventListener("submit", (event) => {
+        event.preventDefault();
+        const query = document
+          .querySelector("#profileSearchInput")
+          .value.trim()
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "")
+          .toLocaleLowerCase("pt-BR");
+        const status = document.querySelector("#profileSearchStatus");
+
+        if (!query) {
+          status.textContent = "Digite algo para buscar no perfil.";
+          return;
+        }
+
+        const match = [...document.querySelectorAll(".profile-panel")].find((panel) =>
+          panel.textContent
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "")
+            .toLocaleLowerCase("pt-BR")
+            .includes(query),
+        );
+
+        if (!match) {
+          status.textContent = "Nenhum resultado encontrado no perfil.";
+          return;
+        }
+
+        status.textContent = "Resultado encontrado no perfil.";
+        const tabPanel = match.closest(".tab-pane");
+        if (tabPanel && !tabPanel.classList.contains("active")) {
+          bootstrap.Tab.getOrCreateInstance(
+            document.querySelector(`[data-bs-target="#${tabPanel.id}"]`),
+          ).show();
+        }
+        match.scrollIntoView({ behavior: "smooth", block: "center" });
+      });
+
+      document.querySelectorAll("[data-profile-tab]").forEach((link) => {
+        link.addEventListener("click", (event) => {
+          event.preventDefault();
+          bootstrap.Tab.getOrCreateInstance(
+            document.querySelector(`#${link.dataset.profileTab}`),
+          ).show();
+          document.querySelector("#profileTabList").scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
