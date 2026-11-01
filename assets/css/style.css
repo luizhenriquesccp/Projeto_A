@@ -1,3 +1,11 @@
+:root {
+    --brand-lime: #FFD43B;
+    --brand-lime-rgb: 255, 212, 59;
+    --action-orange: #FF7A00;
+    --action-orange-rgb: 255, 122, 0;
+    --action-orange-hover: #fff41f;
+}
+
 body {
     margin: 0;
     font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -60,8 +68,8 @@ body {
 
 .nav-options a:hover,
 .nav-options a:focus-visible {
-    color: #FF941F;
-    text-shadow: 0 0 8px rgb(255 148 31 / 81%);
+    color: var(--brand-lime);
+    text-shadow: 0 0 8px rgba(var(--brand-lime-rgb), 0.65);
 }
 
 .site-search {
@@ -78,7 +86,7 @@ body {
 }
 
 .site-search:focus-within {
-    border-color: #FF941F;
+    border-color: var(--brand-lime);
     animation: search-border-glow 1.8s ease-in-out infinite;
 }
 
@@ -109,7 +117,7 @@ body {
     place-items: center;
     border: 0;
     background: transparent;
-    color: #FF941F;
+    color: var(--brand-lime);
     cursor: pointer;
 }
 
@@ -145,7 +153,7 @@ body {
 .account-menu-toggle:hover,
 .account-menu-toggle:focus-visible,
 .account-menu-toggle[aria-expanded="true"] {
-    color: #FF941F;
+    color: var(--brand-lime);
 }
 
 .account-menu-toggle::after {
@@ -178,13 +186,13 @@ body {
 
 .account-menu .dropdown-item:hover,
 .account-menu .dropdown-item:focus {
-    background-color: rgb(255 148 31 / 12%);
-    color: #FF941F;
+    background-color: rgba(var(--brand-lime-rgb), 0.08);
+    color: var(--brand-lime);
 }
 
 .site-header .btn-warning {
     color: #030000;
-    background-color: #FF941F;
+    background-color: var(--action-orange);
     flex: 0 0 auto;
     min-width: 4.5rem;
     padding: 0.3rem 0.65rem;
@@ -195,16 +203,15 @@ body {
 
 .btn-warning {
     color: #030000;
-    background-color: #FF941F;
-    border: 1px solid #FF941F;
-    transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease;
+    background: var(--action-orange);
+    border: 1px solid var(--action-orange);
+    transition: background 180ms ease, border-color 180ms ease, color 180ms ease;
 }
 
 .btn-warning:hover,
 .btn-warning:focus-visible {
-    background-color: #c46b0f;
-    border: 1px solid #fcfcfc63;
-
+    background: linear-gradient(110deg, var(--action-orange-hover), var(--action-orange));
+    border-color: var(--action-orange-hover);
 }
 
 body {
@@ -372,7 +379,7 @@ main {
     padding: 0.3rem 0.55rem;
     overflow: hidden;
     border-radius: 0.45rem;
-    background: #d47719;
+    background: var(--action-orange);
     color: #242424;
     font-size: 0.65rem;
     line-height: 1.3;
@@ -380,13 +387,14 @@ main {
     text-overflow: ellipsis;
     text-transform: uppercase;
     white-space: nowrap;
-    transition: background-color 160ms ease, color 160ms ease;
+    transition: background 160ms ease, color 160ms ease;
 }
 
 .service-card-button:hover,
 .service-card-button:focus-visible {
-    background: #FF941F;
+    background: linear-gradient(110deg, var(--action-orange-hover), var(--action-orange));
     color: #111;
+    transition: background 18s ease, color 18s ease;
 }
 
 @media (max-width: 768px) {
@@ -475,18 +483,18 @@ main {
 @keyframes search-border-glow {
     0%,
     100% {
-        box-shadow: 0 0 0 2px rgb(255 148 31 / 12%);
+        box-shadow: 0 0 0 2px rgba(var(--brand-lime-rgb), 0.12);
     }
 
     50% {
-        box-shadow: 0 0 0 5px rgb(255 148 31 / 28%);
+        box-shadow: 0 0 0 5px rgba(var(--brand-lime-rgb), 0.28);
     }
 }
 
 @media (prefers-reduced-motion: reduce) {
     .site-search:focus-within {
         animation: none;
-        box-shadow: 0 0 0 3px rgb(255 148 31 / 18%);
+        box-shadow: 0 0 0 3px rgba(var(--brand-lime-rgb), 0.18);
     }
 }
 
@@ -523,7 +531,7 @@ main {
 .profile-page {
     min-height: 100vh;
     background:
-        radial-gradient(ellipse at 86% 22%, rgb(255 148 31 / 5%), transparent 29rem),
+        radial-gradient(ellipse at 86% 22%, rgba(var(--brand-lime-rgb), 0.04), transparent 29rem),
         linear-gradient(135deg, #111 0%, #191919 48%, #101010 100%);
     color: #f4f4f1;
 }
@@ -553,10 +561,10 @@ main {
     display: grid;
     flex: 0 0 auto;
     place-items: center;
-    border: 1px solid rgb(255 148 31 / 38%);
+    border: 1px solid rgba(var(--brand-lime-rgb), 0.38);
     border-radius: 50%;
-    background: linear-gradient(145deg, #392719, #17120d);
-    color: #FFAD52;
+    background: linear-gradient(145deg, #353b19, #17180c);
+    color: var(--brand-lime);
     font-weight: 700;
     letter-spacing: 0.04em;
 }
@@ -596,9 +604,9 @@ main {
     padding: 1.5rem 1.75rem;
     background:
         linear-gradient(112deg, rgb(9 10 5 / 12%), rgb(9 10 5 / 72%)),
-        radial-gradient(ellipse at 75% 15%, rgb(255 148 31 / 44%), transparent 29%),
-        radial-gradient(ellipse at 23% 110%, rgb(190 96 24 / 29%), transparent 45%),
-        linear-gradient(125deg, #4a321d 0%, #241b14 44%, #111 100%);
+        radial-gradient(ellipse at 75% 15%, rgba(var(--brand-lime-rgb), 0.3), transparent 29%),
+        radial-gradient(ellipse at 23% 110%, rgba(var(--brand-lime-rgb), 0.12), transparent 45%),
+        linear-gradient(125deg, #3a4018 0%, #222416 44%, #111 100%);
 }
 
 .profile-cover::before,
@@ -606,7 +614,7 @@ main {
     position: absolute;
     width: 23rem;
     height: 23rem;
-    border: 1px solid rgb(255 148 31 / 15%);
+    border: 1px solid rgba(var(--brand-lime-rgb), 0.15);
     border-radius: 50%;
     content: "";
 }
@@ -615,8 +623,8 @@ main {
     top: -12rem;
     right: 10%;
     box-shadow:
-        0 0 0 2.2rem rgb(255 148 31 / 3%),
-        0 0 0 4.4rem rgb(255 148 31 / 3%);
+        0 0 0 2.2rem rgba(var(--brand-lime-rgb), 0.03),
+        0 0 0 4.4rem rgba(var(--brand-lime-rgb), 0.03);
 }
 
 .profile-cover::after {
@@ -644,7 +652,7 @@ main {
 }
 
 .profile-cover-mark {
-    color: rgb(255 148 31 / 78%);
+    color: var(--brand-lime);
     font-size: clamp(5rem, 13vw, 9.5rem);
     font-weight: 800;
     line-height: 0.8;
@@ -668,8 +676,8 @@ main {
     margin-top: -4.7rem;
     border: 4px solid #1b1b1b;
     background:
-        radial-gradient(circle at 30% 20%, rgb(255 148 31 / 30%), transparent 45%),
-        linear-gradient(145deg, #3a2b1d, #17120d);
+        radial-gradient(circle at 30% 20%, rgba(var(--brand-lime-rgb), 0.3), transparent 45%),
+        linear-gradient(145deg, #3a401b, #17180d);
     box-shadow: 0 0.7rem 1.5rem rgb(0 0 0 / 25%);
     font-size: 1.6rem;
 }
@@ -692,7 +700,7 @@ main {
 .profile-eyebrow,
 .panel-kicker {
     margin: 0 0 0.35rem;
-    color: #FFAD52;
+    color: var(--brand-lime);
     font-size: 0.62rem;
     font-weight: 700;
     letter-spacing: 0.14em;
@@ -742,15 +750,21 @@ main {
 }
 
 .profile-page .btn-profile-primary {
-    border: 1px solid #FF941F;
-    background: #FF941F;
+    border: 1px solid var(--action-orange);
+    background: var(--action-orange);
     color: #12130b;
+    transition: background 180ms ease, border-color 180ms ease, color 180ms ease;
+}
+
+.profile-page .btn-profile-primary[aria-pressed="true"] {
+    border-color: var(--action-orange);
+    background: var(--action-orange);
 }
 
 .profile-page .btn-profile-primary:hover,
-.profile-page .btn-profile-primary[aria-pressed="true"] {
-    border-color: #e8871c;
-    background: #e8871c;
+.profile-page .btn-profile-primary:focus-visible {
+    border-color: var(--action-orange-hover);
+    background: linear-gradient(110deg, var(--action-orange-hover), var(--action-orange));
     color: #111;
 }
 
@@ -763,8 +777,8 @@ main {
 
 .profile-page .btn-profile-secondary:hover,
 .profile-page .btn-profile-icon:hover {
-    border-color: rgb(255 148 31 / 65%);
-    color: #FF941F;
+    border-color: rgba(var(--brand-lime-rgb), 0.65);
+    color: var(--brand-lime);
 }
 
 .profile-page .btn-profile-icon {
@@ -786,7 +800,7 @@ main {
 .profile-feedback {
     min-height: 1rem;
     margin: -0.8rem 1.75rem 0.8rem;
-    color: #FF941F;
+    color: var(--action-orange-hover);
     font-size: 0.72rem;
 }
 
@@ -814,7 +828,7 @@ main {
 .profile-tabs .nav-link:hover,
 .profile-tabs .nav-link:focus-visible,
 .profile-tabs .nav-link.active {
-    color: #FFAD52;
+    color: var(--brand-lime);
 }
 
 .profile-tabs .nav-link.active {
@@ -828,7 +842,7 @@ main {
     bottom: 0;
     left: 0.7rem;
     height: 2px;
-    background: #FF941F;
+    background: var(--brand-lime);
     content: "";
 }
 
@@ -882,7 +896,7 @@ main {
 }
 
 .panel-heading-mark {
-    color: rgb(255 148 31 / 65%);
+    color: rgba(var(--brand-lime-rgb), 0.65);
     font-size: 0.76rem;
     font-weight: 700;
     letter-spacing: 0.1em;
@@ -905,16 +919,16 @@ main {
 
 .profile-tags span {
     padding: 0.35rem 0.62rem;
-    border: 1px solid rgb(255 148 31 / 18%);
+    border: 1px solid rgba(var(--brand-lime-rgb), 0.18);
     border-radius: 999px;
-    background: rgb(255 148 31 / 5%);
-    color: #f5c99e;
+    background: rgba(var(--brand-lime-rgb), 0.05);
+    color: #e7f2a0;
     font-size: 0.68rem;
 }
 
 .text-link,
 .availability-link {
-    color: #FF941F;
+    color: var(--brand-lime);
     font-size: 0.72rem;
     font-weight: 650;
     text-decoration: none;
@@ -922,7 +936,7 @@ main {
 
 .text-link:hover,
 .availability-link:hover {
-    color: #ffc078;
+    color: #efff78;
     text-decoration: underline;
     text-underline-offset: 0.2rem;
 }
@@ -936,7 +950,7 @@ main {
     border: 1px solid rgb(255 255 255 / 7%);
     border-radius: 0.65rem;
     background:
-        radial-gradient(ellipse at 0% 100%, rgb(255 148 31 / 8%), transparent 55%),
+        radial-gradient(ellipse at 0% 100%, rgba(var(--brand-lime-rgb), 0.06), transparent 55%),
         #20211a;
 }
 
@@ -945,10 +959,10 @@ main {
     width: 4.6rem;
     height: 4.6rem;
     place-items: center;
-    border: 1px solid rgb(255 148 31 / 22%);
+    border: 1px solid rgba(var(--brand-lime-rgb), 0.22);
     border-radius: 0.55rem;
-    background: linear-gradient(145deg, #3a2919, #1a140f);
-    color: #FF941F;
+    background: linear-gradient(145deg, #33371d, #191a12);
+    color: var(--brand-lime);
 }
 
 .project-symbol svg {
@@ -960,7 +974,7 @@ main {
 .equipment-card > p,
 .event-type {
     margin: 0 0 0.25rem;
-    color: #FFAD52;
+    color: var(--brand-lime);
     font-size: 0.57rem;
     font-weight: 700;
     letter-spacing: 0.11em;
@@ -1028,7 +1042,7 @@ main {
 .activity-item .activity-reaction {
     display: inline-block;
     margin-top: 0.55rem;
-    color: #FF941F;
+    color: var(--brand-lime);
     font-size: 0.7rem;
 }
 
@@ -1081,7 +1095,7 @@ main {
 
 .availability-panel {
     background:
-        radial-gradient(ellipse at 100% 0%, rgb(255 148 31 / 9%), transparent 60%),
+        radial-gradient(ellipse at 100% 0%, rgba(var(--brand-lime-rgb), 0.06), transparent 60%),
         #1b1b1b;
 }
 
@@ -1113,9 +1127,9 @@ main {
     width: 1.75rem;
     height: 1.75rem;
     place-items: center;
-    border: 1px solid rgb(255 148 31 / 25%);
+    border: 1px solid rgba(var(--brand-lime-rgb), 0.25);
     border-radius: 0.45rem;
-    color: #FF941F;
+    color: var(--brand-lime);
     font-size: 0.8rem;
     font-weight: 800;
 }
@@ -1189,8 +1203,8 @@ main {
     margin-bottom: 1rem;
     place-items: center;
     border-radius: 0.45rem;
-    background: rgb(255 148 31 / 10%);
-    color: #FF941F;
+    background: rgba(var(--brand-lime-rgb), 0.08);
+    color: var(--brand-lime);
     font-size: 0.65rem;
     font-weight: 700;
 }
@@ -1220,9 +1234,9 @@ main {
     height: 3.5rem;
     align-content: center;
     justify-items: center;
-    border: 1px solid rgb(255 148 31 / 22%);
+    border: 1px solid rgba(var(--action-orange-rgb), 0.22);
     border-radius: 0.55rem;
-    background: rgb(255 148 31 / 5%);
+    background: rgba(var(--action-orange-rgb), 0.05);
 }
 
 .event-date strong {
@@ -1232,7 +1246,7 @@ main {
 }
 
 .event-date span {
-    color: #FFAD52;
+    color: var(--action-orange-hover);
     font-size: 0.57rem;
     font-weight: 700;
 }
@@ -1299,8 +1313,8 @@ main {
 }
 
 .profile-modal .profile-form-control:focus {
-    border-color: #FF941F;
-    box-shadow: 0 0 0 0.2rem rgb(255 148 31 / 13%);
+    border-color: var(--brand-lime);
+    box-shadow: 0 0 0 0.2rem rgba(var(--brand-lime-rgb), 0.13);
 }
 
 .profile-modal textarea {
