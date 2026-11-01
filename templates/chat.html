@@ -1,0 +1,677 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Converse com profissionais e envie propostas de trabalho pela Action."
+    />
+    <title>Conversas | Action</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../assets/css/style.css" />
+  </head>
+  <body class="messages-page">
+    <header class="site-header">
+      <nav class="site-nav" aria-label="Navegação principal">
+        <a class="company-name" href="index.html#inicio" aria-label="Action — início">
+          <img src="../assets/img/logo.png" alt="Action" />
+        </a>
+        <ul class="nav-options">
+          <li><a href="index.html#inicio">Início</a></li>
+          <li><a href="index.html#sobre">Sobre</a></li>
+          <li><a href="index.html#servicos">Serviços</a></li>
+          <li><a href="index.html#contato">Contato</a></li>
+        </ul>
+        <form class="site-search" role="search" id="messagesSearch">
+          <label class="visually-hidden" for="messagesSearchInput">
+            Buscar conversas
+          </label>
+          <input
+            class="site-search-input"
+            type="search"
+            id="messagesSearchInput"
+            placeholder="Buscar..."
+            autocomplete="off"
+          />
+          <button class="site-search-button" type="submit" aria-label="Buscar conversas">
+            <svg aria-hidden="true" viewBox="0 0 24 24">
+              <circle cx="10.8" cy="10.8" r="6.8"></circle>
+              <path d="m16 16 5 5"></path>
+            </svg>
+          </button>
+          <span
+            class="visually-hidden"
+            id="messagesSearchStatus"
+            role="status"
+          ></span>
+        </form>
+        <div class="dropdown account-menu">
+          <button
+            class="account-menu-toggle dropdown-toggle"
+            type="button"
+            id="messagesAccountMenu"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <span class="profile-mini-avatar" aria-hidden="true">LS</span>
+            <span>Lucas</span>
+          </button>
+          <ul
+            class="dropdown-menu dropdown-menu-end"
+            aria-labelledby="messagesAccountMenu"
+          >
+            <li><a class="dropdown-item" href="user.html">Meu perfil</a></li>
+            <li><a class="dropdown-item" href="index.html">Sair do perfil</a></li>
+          </ul>
+        </div>
+        <a class="btn btn-warning" href="index.html#planos">PLANOS</a>
+      </nav>
+    </header>
+
+    <main class="messages-shell">
+      <aside class="conversation-sidebar" aria-label="Lista de conversas">
+        <div class="conversation-sidebar-heading">
+          <div>
+            <p class="messages-eyebrow">ESPAÇO DA EMPRESA</p>
+            <h1>Conversas</h1>
+          </div>
+          <span class="conversation-count">03</span>
+        </div>
+
+        <label class="conversation-search">
+          <span class="visually-hidden">Buscar conversas</span>
+          <svg aria-hidden="true" viewBox="0 0 24 24">
+            <circle cx="10.8" cy="10.8" r="6.8"></circle>
+            <path d="m16 16 5 5"></path>
+          </svg>
+          <input
+            id="conversationSearch"
+            type="search"
+            placeholder="Buscar profissional..."
+            autocomplete="off"
+          />
+        </label>
+
+        <div class="conversation-filters" role="group" aria-label="Filtrar conversas">
+          <button
+            class="conversation-filter is-active"
+            type="button"
+            data-filter="all"
+            aria-pressed="true"
+          >
+            Todas
+          </button>
+          <button
+            class="conversation-filter"
+            type="button"
+            data-filter="unread"
+            aria-pressed="false"
+          >
+            Não lidas
+          </button>
+          <button
+            class="conversation-filter"
+            type="button"
+            data-filter="proposals"
+            aria-pressed="false"
+          >
+            Propostas
+          </button>
+        </div>
+
+        <nav class="conversation-list" id="conversationList" aria-label="Profissionais">
+          <button
+            class="conversation-item is-active"
+            type="button"
+            data-conversation="lucas"
+            aria-current="true"
+          >
+            <span class="conversation-avatar" aria-hidden="true">LS</span>
+            <span class="conversation-summary">
+              <span class="conversation-name-row">
+                <strong>Lucas Silva</strong>
+                <time datetime="2026-11-01T09:32">09:32</time>
+              </span>
+              <span class="conversation-role">Técnico de som · São Paulo</span>
+              <span class="conversation-preview">Tenho interesse na oportunidade!</span>
+            </span>
+            <span class="conversation-unread" aria-label="2 mensagens não lidas">2</span>
+          </button>
+          <button
+            class="conversation-item"
+            type="button"
+            data-conversation="marina"
+            aria-current="false"
+          >
+            <span
+              class="conversation-avatar conversation-avatar--violet"
+              aria-hidden="true"
+            >
+              MC
+            </span>
+            <span class="conversation-summary">
+              <span class="conversation-name-row">
+                <strong>Marina Costa</strong>
+                <time datetime="2026-11-01T08:50">08:50</time>
+              </span>
+              <span class="conversation-role">Produtora audiovisual · Rio</span>
+              <span class="conversation-preview">Obrigada pelo contato.</span>
+            </span>
+            <span class="conversation-unread" aria-label="1 mensagem não lida">1</span>
+          </button>
+          <button
+            class="conversation-item"
+            type="button"
+            data-conversation="bruno"
+            aria-current="false"
+          >
+            <span
+              class="conversation-avatar conversation-avatar--blue"
+              aria-hidden="true"
+            >
+              BM
+            </span>
+            <span class="conversation-summary">
+              <span class="conversation-name-row">
+                <strong>Bruno Mendes</strong>
+                <time datetime="2026-10-31T17:18">Ontem</time>
+              </span>
+              <span class="conversation-role">Editor de vídeo · Curitiba</span>
+              <span class="conversation-preview">Vocês já têm uma data prevista?</span>
+            </span>
+            <span
+              class="conversation-unread"
+              aria-label="Mensagens não lidas"
+              hidden
+              >1</span
+            >
+          </button>
+          <p class="conversation-empty" id="conversationEmpty" hidden>
+            Nenhuma conversa encontrada.
+          </p>
+        </nav>
+      </aside>
+
+      <section class="conversation-pane" aria-label="Conversa com Lucas Silva">
+        <header class="conversation-header">
+          <div class="conversation-person">
+            <span
+              class="conversation-avatar conversation-avatar--large"
+              id="activeAvatar"
+              aria-hidden="true"
+              >LS</span
+            >
+            <div>
+              <h2 id="activeName">Lucas Silva</h2>
+              <p id="activeRole">Técnico de som · São Paulo, SP</p>
+            </div>
+            <span class="online-indicator" id="activeStatus">Disponível</span>
+          </div>
+          <div class="conversation-actions">
+            <a class="conversation-profile-link" href="user.html">Ver perfil</a>
+            <button class="proposal-button" id="openProposal" type="button">
+              <svg aria-hidden="true" viewBox="0 0 24 24">
+                <path d="M12 5v14M5 12h14"></path>
+              </svg>
+              Enviar proposta
+            </button>
+          </div>
+        </header>
+
+        <div class="message-thread" id="messageThread" role="log" aria-live="polite">
+          <div class="message-date"><span>Hoje</span></div>
+        </div>
+
+        <p
+          class="messages-feedback"
+          id="messagesFeedback"
+          role="status"
+          aria-live="polite"
+        ></p>
+
+        <form class="message-composer" id="messageForm">
+          <label class="visually-hidden" for="messageInput">Escreva uma mensagem</label>
+          <textarea
+            id="messageInput"
+            name="message"
+            rows="1"
+            maxlength="1000"
+            placeholder="Escreva uma mensagem..."
+            required
+          ></textarea>
+          <button class="message-send-button" type="submit">
+            Enviar
+            <svg aria-hidden="true" viewBox="0 0 24 24">
+              <path d="m4 12 16-8-5 16-3-7-8-1Zm8 1 8-9"></path>
+            </svg>
+          </button>
+        </form>
+      </section>
+    </main>
+
+    <dialog
+      class="proposal-dialog"
+      id="proposalDialog"
+      aria-labelledby="proposalTitle"
+    >
+      <form class="proposal-form" id="proposalForm">
+        <header class="proposal-dialog-header">
+          <div>
+            <p class="messages-eyebrow">NOVA OPORTUNIDADE</p>
+            <h2 id="proposalTitle">Enviar proposta</h2>
+            <p>Para <strong id="proposalRecipient">Lucas Silva</strong></p>
+          </div>
+          <button
+            class="dialog-close"
+            id="closeProposal"
+            type="button"
+            aria-label="Fechar formulário"
+          >
+            &times;
+          </button>
+        </header>
+        <div class="proposal-fields">
+          <label for="proposalJobTitle">Título do trabalho</label>
+          <input
+            id="proposalJobTitle"
+            name="jobTitle"
+            maxlength="100"
+            placeholder="Ex.: Técnico de som para evento"
+            required
+          />
+
+          <div class="proposal-fields-row">
+            <div>
+              <label for="proposalContract">Tipo de contratação</label>
+              <select id="proposalContract" name="contract" required>
+                <option value="" selected disabled>Selecione</option>
+                <option>Freelancer</option>
+                <option>Temporário</option>
+                <option>Efetivo</option>
+                <option>Prestação de serviço</option>
+              </select>
+            </div>
+            <div>
+              <label for="proposalBudget">Remuneração (opcional)</label>
+              <input
+                id="proposalBudget"
+                name="budget"
+                inputmode="decimal"
+                maxlength="40"
+                placeholder="Ex.: R$ 800 por diária"
+              />
+            </div>
+          </div>
+
+          <label for="proposalDeadline">Data prevista</label>
+          <input id="proposalDeadline" name="deadline" type="date" />
+
+          <label for="proposalDescription">Detalhes da oportunidade</label>
+          <textarea
+            id="proposalDescription"
+            name="description"
+            rows="4"
+            maxlength="1200"
+            placeholder="Conte sobre o trabalho, local, horários e o que espera do profissional."
+            required
+          ></textarea>
+        </div>
+        <footer class="proposal-dialog-footer">
+          <button class="proposal-cancel" id="cancelProposal" type="button">
+            Cancelar
+          </button>
+          <button class="proposal-submit" type="submit">Enviar proposta</button>
+        </footer>
+      </form>
+    </dialog>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      const conversations = {
+        lucas: {
+          name: "Lucas Silva",
+          initials: "LS",
+          role: "Técnico de som · São Paulo, SP",
+          status: "Disponível",
+          unread: 2,
+          messages: [
+            {
+              sender: "them",
+              text: "Olá! Vi que a Action está buscando profissionais para eventos. Tenho experiência com sonorização e mixagem ao vivo.",
+              time: "09:28",
+            },
+            {
+              sender: "you",
+              text: "Oi, Lucas! Obrigado por entrar em contato. Seu perfil combina com alguns trabalhos que estamos organizando.",
+              time: "09:30",
+            },
+            {
+              sender: "them",
+              text: "Tenho interesse na oportunidade! Pode me enviar mais detalhes?",
+              time: "09:32",
+            },
+          ],
+        },
+        marina: {
+          name: "Marina Costa",
+          initials: "MC",
+          role: "Produtora audiovisual · Rio de Janeiro, RJ",
+          status: "Disponível",
+          unread: 1,
+          messages: [
+            {
+              sender: "you",
+              text: "Olá, Marina! Conhecemos seu trabalho e gostaríamos de conversar sobre uma produção que vem por aí.",
+              time: "08:42",
+            },
+            {
+              sender: "them",
+              text: "Obrigada pelo contato. Adoraria saber mais sobre o projeto.",
+              time: "08:50",
+            },
+          ],
+        },
+        bruno: {
+          name: "Bruno Mendes",
+          initials: "BM",
+          role: "Editor de vídeo · Curitiba, PR",
+          status: "Visto por último há 1 hora",
+          unread: 0,
+          messages: [
+            {
+              sender: "them",
+              text: "Vocês já têm uma data prevista para as gravações?",
+              time: "17:18",
+            },
+          ],
+        },
+      };
+
+      const conversationButtons = [...document.querySelectorAll("[data-conversation]")];
+      const thread = document.querySelector("#messageThread");
+      const messageForm = document.querySelector("#messageForm");
+      const messageInput = document.querySelector("#messageInput");
+      const messagesFeedback = document.querySelector("#messagesFeedback");
+      const proposalDialog = document.querySelector("#proposalDialog");
+      const proposalForm = document.querySelector("#proposalForm");
+      const conversationSearch = document.querySelector("#conversationSearch");
+      const conversationEmpty = document.querySelector("#conversationEmpty");
+      const messagesSearch = document.querySelector("#messagesSearch");
+      const messagesSearchInput = document.querySelector("#messagesSearchInput");
+      const messagesSearchStatus = document.querySelector("#messagesSearchStatus");
+      let activeConversationId = "lucas";
+      let activeFilter = "all";
+
+      function createMessage(message) {
+        const article = document.createElement("article");
+        article.className = `message message--${message.sender}`;
+
+        if (message.proposal) {
+          const card = document.createElement("div");
+          card.className = "sent-proposal";
+          const header = document.createElement("div");
+          header.className = "sent-proposal-heading";
+          const heading = document.createElement("strong");
+          heading.textContent = message.proposal.jobTitle;
+          const status = document.createElement("span");
+          status.textContent = "Salva nesta sessão";
+          header.append(heading, status);
+          card.append(header);
+
+          const description = document.createElement("p");
+          description.textContent = message.proposal.description;
+          card.append(description);
+
+          const details = document.createElement("dl");
+          const detailEntries = [
+            ["Contratação", message.proposal.contract],
+            ["Remuneração", message.proposal.budget],
+            ["Data prevista", message.proposal.deadline],
+          ].filter(([, value]) => value);
+
+          detailEntries.forEach(([label, value]) => {
+            const row = document.createElement("div");
+            const term = document.createElement("dt");
+            const detail = document.createElement("dd");
+            term.textContent = label;
+            detail.textContent = value;
+            row.append(term, detail);
+            details.append(row);
+          });
+          card.append(details);
+          article.append(card);
+        } else {
+          const bubble = document.createElement("p");
+          bubble.className = "message-bubble";
+          bubble.textContent = message.text;
+          article.append(bubble);
+        }
+
+        const time = document.createElement("time");
+        time.className = "message-time";
+        time.textContent = message.time;
+        article.append(time);
+        return article;
+      }
+
+      function renderConversation(id) {
+        const conversation = conversations[id];
+        if (!conversation) return;
+
+        activeConversationId = id;
+        document.querySelector("#activeName").textContent = conversation.name;
+        document.querySelector("#activeRole").textContent = conversation.role;
+        document.querySelector("#activeAvatar").textContent = conversation.initials;
+        document.querySelector("#activeStatus").textContent = conversation.status;
+        document.querySelector(".conversation-pane").setAttribute(
+          "aria-label",
+          `Conversa com ${conversation.name}`,
+        );
+        document.querySelector("#proposalRecipient").textContent = conversation.name;
+
+        conversationButtons.forEach((button) => {
+          const selected = button.dataset.conversation === id;
+          button.classList.toggle("is-active", selected);
+          button.setAttribute("aria-current", String(selected));
+          if (selected) {
+            button.querySelector(".conversation-unread").hidden = true;
+          }
+        });
+        conversation.unread = 0;
+
+        thread.replaceChildren();
+        const dateDivider = document.createElement("div");
+        dateDivider.className = "message-date";
+        const dateLabel = document.createElement("span");
+        dateLabel.textContent = "Hoje";
+        dateDivider.append(dateLabel);
+        thread.append(dateDivider, ...conversation.messages.map(createMessage));
+        thread.scrollTop = thread.scrollHeight;
+        updateConversationFilters();
+      }
+
+      function updateConversationPreview(id) {
+        const button = conversationButtons.find(
+          (conversationButton) => conversationButton.dataset.conversation === id,
+        );
+        const latestMessage = conversations[id].messages.at(-1);
+        const preview = button.querySelector(".conversation-preview");
+        preview.textContent = latestMessage.proposal
+          ? `Proposta: ${latestMessage.proposal.jobTitle}`
+          : latestMessage.text;
+        const time = button.querySelector("time");
+        time.textContent = latestMessage.time;
+        if (latestMessage.timestamp) time.dateTime = latestMessage.timestamp;
+      }
+
+      function normalize(value) {
+        return value
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "")
+          .toLocaleLowerCase("pt-BR");
+      }
+
+      function updateConversationFilters() {
+        const query = normalize(conversationSearch.value.trim());
+        let visibleCount = 0;
+
+        conversationButtons.forEach((button) => {
+          const conversation = conversations[button.dataset.conversation];
+          const matchesQuery = normalize(
+            `${conversation.name} ${conversation.role}`,
+          ).includes(query);
+          const matchesFilter =
+            activeFilter === "all" ||
+            (activeFilter === "unread" && conversation.unread > 0) ||
+            (activeFilter === "proposals" &&
+              conversation.messages.some((message) => message.proposal));
+          const visible = matchesQuery && matchesFilter;
+          button.hidden = !visible;
+          if (visible) visibleCount += 1;
+        });
+
+        conversationEmpty.hidden = visibleCount > 0;
+      }
+
+      conversationButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          renderConversation(button.dataset.conversation);
+          messagesFeedback.textContent = "";
+        });
+      });
+
+      document.querySelectorAll("[data-filter]").forEach((button) => {
+        button.addEventListener("click", () => {
+          activeFilter = button.dataset.filter;
+          document.querySelectorAll("[data-filter]").forEach((filterButton) => {
+            const selected = filterButton === button;
+            filterButton.classList.toggle("is-active", selected);
+            filterButton.setAttribute("aria-pressed", String(selected));
+          });
+          updateConversationFilters();
+        });
+      });
+
+      conversationSearch.addEventListener("input", updateConversationFilters);
+
+      messagesSearch.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const query = messagesSearchInput.value.trim();
+        if (!query) {
+          messagesSearchStatus.textContent = "Digite um nome para buscar.";
+          messagesSearchInput.focus();
+          return;
+        }
+
+        conversationSearch.value = query;
+        activeFilter = "all";
+        document.querySelectorAll("[data-filter]").forEach((button) => {
+          const selected = button.dataset.filter === "all";
+          button.classList.toggle("is-active", selected);
+          button.setAttribute("aria-pressed", String(selected));
+        });
+        updateConversationFilters();
+        messagesSearchStatus.textContent = conversationButtons.some(
+          (button) => !button.hidden,
+        )
+          ? "Conversa encontrada."
+          : "Nenhuma conversa encontrada.";
+      });
+
+      messageForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const text = messageInput.value.trim();
+        if (!text) {
+          messagesFeedback.textContent = "Digite uma mensagem antes de enviar.";
+          return;
+        }
+
+        const now = new Date();
+        conversations[activeConversationId].messages.push({
+          sender: "you",
+          text,
+          timestamp: now.toISOString(),
+          time: now.toLocaleTimeString("pt-BR", {
+            hour: "2-digit",
+            minute: "2-digit",
+          }),
+        });
+        updateConversationPreview(activeConversationId);
+        renderConversation(activeConversationId);
+        messageInput.value = "";
+        messagesFeedback.textContent =
+          "Mensagem adicionada à conversa durante esta sessão.";
+        messageInput.focus();
+      });
+
+      document.querySelector("#openProposal").addEventListener("click", () => {
+        proposalForm.reset();
+        document.querySelector("#proposalRecipient").textContent =
+          conversations[activeConversationId].name;
+        proposalDialog.showModal();
+      });
+
+      function closeProposalDialog() {
+        proposalDialog.close();
+      }
+
+      document
+        .querySelector("#closeProposal")
+        .addEventListener("click", closeProposalDialog);
+      document
+        .querySelector("#cancelProposal")
+        .addEventListener("click", closeProposalDialog);
+
+      proposalDialog.addEventListener("click", (event) => {
+        if (event.target === proposalDialog) closeProposalDialog();
+      });
+
+      proposalForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        if (!proposalForm.reportValidity()) return;
+
+        const formData = new FormData(proposalForm);
+        const deadline = formData.get("deadline");
+        const formattedDeadline = deadline
+          ? new Date(`${deadline}T12:00:00`).toLocaleDateString("pt-BR")
+          : "";
+
+        const now = new Date();
+        conversations[activeConversationId].messages.push({
+          sender: "you",
+          timestamp: now.toISOString(),
+          proposal: {
+            jobTitle: formData.get("jobTitle").trim(),
+            contract: formData.get("contract"),
+            budget: formData.get("budget").trim(),
+            deadline: formattedDeadline,
+            description: formData.get("description").trim(),
+          },
+          time: now.toLocaleTimeString("pt-BR", {
+            hour: "2-digit",
+            minute: "2-digit",
+          }),
+        });
+
+        updateConversationPreview(activeConversationId);
+        renderConversation(activeConversationId);
+        closeProposalDialog();
+        messagesFeedback.textContent =
+          `Proposta adicionada à conversa com ${conversations[activeConversationId].name} ` +
+          "neste navegador. A entrega real exige conexão com o backend.";
+      });
+
+      renderConversation(activeConversationId);
+    </script>
+  </body>
+</html>
