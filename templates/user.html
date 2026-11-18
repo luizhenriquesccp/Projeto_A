@@ -302,17 +302,17 @@
                   <div class="job-content">
                     <div class="job-heading">
                       <h3>Sonorização de show ao vivo</h3>
-                      <button
-                        class="job-toggle"
-                        type="button"
-                        data-job-toggle
-                        aria-expanded="false"
-                        aria-controls="job-details-aurora"
-                      >
-                        Mostrar mais
-                      </button>
                     </div>
-                    <span class="job-status job-status--in-progress">Em andamento</span>
+                    <div class="job-meta">
+                      <span class="job-period">
+                        <svg aria-hidden="true" viewBox="0 0 24 24">
+                          <circle cx="12" cy="12" r="8"></circle>
+                          <path d="M12 7v5l3 2"></path>
+                        </svg>
+                        Outubro de 2026
+                      </span>
+                      <span class="job-status job-status--in-progress">Em andamento</span>
+                    </div>
                     <p class="job-description">
                       Sonorização de apresentações ao vivo, com montagem do
                       sistema, passagem de som e mixagem para o público.
@@ -321,6 +321,17 @@
                       <p><strong>Cliente:</strong> Casa de Show Aurora</p>
                       <p><strong>Atuação:</strong> PA, monitoração e operação de mesa digital.</p>
                       <p><strong>Período:</strong> Outubro de 2026 — em andamento</p>
+                    </div>
+                    <div class="job-card-footer">
+                      <button
+                        class="job-toggle"
+                        type="button"
+                        data-job-toggle
+                        aria-expanded="false"
+                        aria-controls="job-details-aurora"
+                      >
+                        Ver detalhes
+                      </button>
                     </div>
                   </div>
                 </article>
@@ -340,17 +351,17 @@
                   <div class="job-content">
                     <div class="job-heading">
                       <h3>Gravação e mixagem de sessão</h3>
-                      <button
-                        class="job-toggle"
-                        type="button"
-                        data-job-toggle
-                        aria-expanded="false"
-                        aria-controls="job-details-studio"
-                      >
-                        Mostrar mais
-                      </button>
                     </div>
-                    <span class="job-status job-status--completed">Concluído</span>
+                    <div class="job-meta">
+                      <span class="job-period">
+                        <svg aria-hidden="true" viewBox="0 0 24 24">
+                          <circle cx="12" cy="12" r="8"></circle>
+                          <path d="M12 7v5l3 2"></path>
+                        </svg>
+                        Setembro de 2026
+                      </span>
+                      <span class="job-status job-status--completed">Concluído</span>
+                    </div>
                     <p class="job-description">
                       Captação multipista e mixagem de uma sessão musical em
                       estúdio, do ajuste dos microfones à entrega final.
@@ -359,6 +370,17 @@
                       <p><strong>Cliente:</strong> Estúdio Ponte</p>
                       <p><strong>Atuação:</strong> Captação, edição e mixagem de áudio.</p>
                       <p><strong>Período:</strong> Setembro de 2026</p>
+                    </div>
+                    <div class="job-card-footer">
+                      <button
+                        class="job-toggle"
+                        type="button"
+                        data-job-toggle
+                        aria-expanded="false"
+                        aria-controls="job-details-studio"
+                      >
+                        Ver detalhes
+                      </button>
                     </div>
                   </div>
                 </article>
@@ -378,17 +400,17 @@
                   <div class="job-content">
                     <div class="job-heading">
                       <h3>Palco principal do Festival da Cidade</h3>
-                      <button
-                        class="job-toggle"
-                        type="button"
-                        data-job-toggle
-                        aria-expanded="false"
-                        aria-controls="job-details-festival"
-                      >
-                        Mostrar mais
-                      </button>
                     </div>
-                    <span style="background-color: #ff4d4d;" class="job-status job-status--canceled">Cancelado</span>
+                    <div class="job-meta">
+                      <span class="job-period">
+                        <svg aria-hidden="true" viewBox="0 0 24 24">
+                          <circle cx="12" cy="12" r="8"></circle>
+                          <path d="M12 7v5l3 2"></path>
+                        </svg>
+                        Agosto de 2026
+                      </span>
+                      <span class="job-status job-status--canceled">Cancelado</span>
+                    </div>
                     <p class="job-description">
                       Operação de áudio e monitoração para apresentações no
                       palco principal do festival.
@@ -397,6 +419,17 @@
                       <p><strong>Cliente:</strong> Festival da Cidade</p>
                       <p><strong>Atuação:</strong> Operação de PA e monitoração de palco.</p>
                       <p><strong>Período:</strong> Agosto de 2026 · cancelado pelo contratante</p>
+                    </div>
+                    <div class="job-card-footer">
+                      <button
+                        class="job-toggle"
+                        type="button"
+                        data-job-toggle
+                        aria-expanded="false"
+                        aria-controls="job-details-festival"
+                      >
+                        Ver detalhes
+                      </button>
                     </div>
                   </div>
                 </article>
@@ -812,7 +845,7 @@
           const expanded = button.getAttribute("aria-expanded") === "true";
           details.hidden = expanded;
           button.setAttribute("aria-expanded", String(!expanded));
-          button.textContent = expanded ? "Mostrar mais" : "Mostrar menos";
+          button.textContent = expanded ? "Ver detalhes" : "Fechar detalhes";
         });
       });
     </script>

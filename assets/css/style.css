@@ -297,104 +297,169 @@ main {
 .cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
-    gap: 2rem;
+    gap: 1.25rem;
     width: min(100% - 3rem, 1100px);
     margin: 1.5rem auto 3rem;
 }
 
 .service-card {
-    position: relative;
     display: flex;
-    min-height: 15rem;
     flex-direction: column;
-    padding: 1rem;
+    min-width: 0;
+    padding: 0.65rem;
     border: 1px solid rgb(255 255 255 / 8%);
-    border-radius: 0.2rem;
-    background: #383838;
-    box-shadow: 0 0.75rem 1.75rem rgb(0 0 0 / 22%);
+    border-radius: 1rem;
+    background: linear-gradient(145deg, #303033, #222224);
+    box-shadow: 0 0.75rem 1.5rem rgb(0 0 0 / 16%);
     color: #f2f2f2;
 }
 
-.service-card-heading {
-    display: flex;
-    min-height: 3.5rem;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 0.75rem;
-}
-
-.service-card-heading h3 {
-    display: table;
-    margin: 0.1rem 0 0.35rem;
-    padding: 0.12rem 0.5rem;
-    border-radius: 999px;
-    background: #080808;
-    color: #fff;
-    font-size: 0.7rem;
-    font-weight: 500;
-    line-height: 1.3;
-    text-transform: uppercase;
-}
-
-.service-card-author {
-    margin: 0 0 0 0.3rem;
-    color: #d0d0d0;
-    font-size: 0.65rem;
+.service-card-artwork {
+    position: relative;
+    min-height: 9rem;
+    overflow: hidden;
+    border-radius: 0.75rem;
+    background: linear-gradient(135deg, #424248, #29292e);
 }
 
 .service-card-image {
+    position: absolute;
+    inset: 0;
     display: grid;
-    flex: 0 0 3rem;
-    width: 3rem;
-    height: 3rem;
-    margin: -1.8rem -1.8rem 0 0;
     place-items: center;
-    border: 1px solid #aaa;
-    border-radius: 50%;
-    background: #d4d4d4;
-    color: #626262;
+    background: radial-gradient(ellipse at 50% 110%, #56565c, transparent 62%);
+    color: #a7a7ae;
 }
 
 .service-card-image svg {
-    width: 2rem;
-    height: 2rem;
+    width: 5rem;
+    height: 5rem;
+    fill: currentColor;
+    opacity: 0.72;
+}
+
+.service-card-category {
+    position: absolute;
+    bottom: 0.65rem;
+    left: 0.65rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.4rem 0.65rem;
+    border: 1px solid rgb(255 255 255 / 10%);
+    border-radius: 999px;
+    background: rgb(18 18 19 / 86%);
+    color: #f2f2ef;
+    font-size: 0.68rem;
+    line-height: 1.2;
+}
+
+.service-card-category svg {
+    width: 1rem;
+    height: 1rem;
+    fill: none;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 1.8;
+}
+
+.service-card-favorite {
+    position: absolute;
+    top: 0.65rem;
+    right: 0.65rem;
+    display: grid;
+    width: 2.25rem;
+    height: 2.25rem;
+    place-items: center;
+    border: 1px solid rgb(255 255 255 / 16%);
+    border-radius: 50%;
+    background: rgb(18 18 19 / 78%);
+    color: #f2f2ef;
+    transition: background-color 160ms ease, color 160ms ease, transform 160ms ease;
+}
+
+.service-card-favorite svg {
+    width: 1.15rem;
+    height: 1.15rem;
+    fill: transparent;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 1.8;
+}
+
+.service-card-favorite:hover,
+.service-card-favorite:focus-visible {
+    transform: scale(1.05);
+}
+
+.service-card-favorite[aria-pressed="true"] {
+    background: #fff;
+    color: #d33b4b;
+}
+
+.service-card-favorite[aria-pressed="true"] svg {
     fill: currentColor;
 }
 
+.service-card-content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: 0.85rem 0.45rem 0.35rem;
+}
+
+.service-card-heading {
+    margin-bottom: 0.55rem;
+}
+
+.service-card-heading h3 {
+    margin: 0;
+    color: #f4f4ed;
+    font-size: 1rem;
+    line-height: 1.35;
+}
+
+.service-card-author {
+    margin: 0.25rem 0 0;
+    color: #bdbdc2;
+    font-size: 0.72rem;
+}
+
 .service-card-description {
-    margin: 1rem 0 1.25rem;
-    color: #e0e0e0;
-    font-size: 0.75rem;
-    line-height: 1.4;
+    margin: 0 0 1rem;
+    color: #d0d0d0;
+    font-size: 0.78rem;
+    line-height: 1.55;
 }
 
 .service-card-actions {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0.5rem;
+    display: flex;
+    justify-content: flex-end;
     margin-top: auto;
 }
 
 .service-card-button {
-    padding: 0.3rem 0.55rem;
-    overflow: hidden;
-    border-radius: 0.45rem;
-    background: var(--action-orange);
-    color: #242424;
-    font-size: 0.65rem;
-    line-height: 1.3;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.55rem 0.85rem;
+    border-radius: 0.6rem;
+    background: #f2f2f2;
+    color: #171717;
+    font-size: 0.78rem;
+    font-weight: 700;
+    line-height: 1.2;
     text-decoration: none;
-    text-overflow: ellipsis;
-    text-transform: uppercase;
-    white-space: nowrap;
-    transition: background 160ms ease, color 160ms ease;
+    transition: background-color 160ms ease, transform 160ms ease;
 }
 
 .service-card-button:hover,
 .service-card-button:focus-visible {
-    background: linear-gradient(110deg, var(--action-orange-hover), var(--action-orange));
+    background: var(--brand-lime);
     color: #111;
-    transition: background 18s ease, color 18s ease;
+    transform: translateY(-1px);
 }
 
 @media (max-width: 768px) {
@@ -853,106 +918,167 @@ main {
 
 .jobs-list {
     display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr));
     gap: 1rem;
 }
 
 .job-card {
-    display: grid;
-    grid-template-columns: minmax(9rem, 0.36fr) minmax(0, 1fr);
-    gap: 1rem;
-    padding: 1rem;
-    border-radius: 0.65rem;
-    background: #353535;
+    min-width: 0;
+    padding: 0.65rem;
+    border: 1px solid rgb(255 255 255 / 8%);
+    border-radius: 1rem;
+    background: linear-gradient(145deg, #303033, #222224);
+    box-shadow: 0 0.75rem 1.5rem rgb(0 0 0 / 16%);
 }
 
 .job-artwork {
-    display: grid;
-    grid-template-rows: auto minmax(0, 1fr);
-    gap: 0.65rem;
-    min-height: 11rem;
-    padding: 0.65rem;
-    border-radius: 0.6rem;
-    background: #272727;
+    position: relative;
+    min-height: 9rem;
+    overflow: hidden;
+    border-radius: 0.75rem;
+    background: linear-gradient(135deg, #424248, #29292e);
 }
 
 .job-company {
+    position: absolute;
+    z-index: 1;
+    bottom: 0.65rem;
+    left: 0.65rem;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    color: #333;
-    font-size: 0.55rem;
+    gap: 0.4rem;
+    padding: 0.3rem 0.65rem 0.3rem 0.35rem;
+    border: 1px solid rgb(255 255 255 / 10%);
+    border-radius: 999px;
+    background: rgb(18 18 19 / 86%);
+    color: #f2f2ef;
+    font-size: 0.6rem;
     font-weight: 700;
+    line-height: 1.2;
 }
 
 .job-company-mark {
     display: grid;
-    width: 2rem;
-    height: 2rem;
+    width: 1.55rem;
+    height: 1.55rem;
     flex: 0 0 auto;
     place-items: center;
     border-radius: 50%;
-    background: #c9c9c9;
-    color: #333;
-    font-size: 0.65rem;
+    background: var(--brand-lime);
+    color: #191919;
+    font-size: 0.55rem;
 }
 
 .job-image-placeholder {
     display: grid;
-    min-height: 7rem;
+    position: absolute;
+    inset: 0;
     place-items: center;
-    border-radius: 0.35rem;
-    background: #f4f4f4;
-    color: #414141;
+    background: radial-gradient(ellipse at 50% 110%, #56565c, transparent 62%);
+    color: #a7a7ae;
 }
 
 .job-image-placeholder svg {
-    width: 3rem;
+    width: 5rem;
     fill: currentColor;
+    opacity: 0.72;
 }
 
 .job-content {
     min-width: 0;
-    padding: 0.1rem 0;
+    padding: 0.85rem 0.45rem 0.35rem;
 }
 
 .job-heading {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 0.75rem;
-    margin-bottom: 0.65rem;
+    margin-bottom: 0.55rem;
 }
 
-.job-heading h3,
+.job-heading h3 {
+    margin: 0;
+    color: #f4f4ed;
+    font-size: 1rem;
+    line-height: 1.35;
+}
+
 .job-preview h3 {
     margin: 0;
     color: #f4f4ed;
     font-size: 0.92rem;
 }
 
+.job-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin-bottom: 0.7rem;
+}
+
+.job-period {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    min-width: 0;
+    color: #bdbdc2;
+    font-size: 0.72rem;
+}
+
+.job-period svg {
+    width: 1rem;
+    height: 1rem;
+    flex: 0 0 auto;
+    fill: none;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 1.8;
+}
+
 .job-toggle {
     flex: 0 0 auto;
-    padding: 0.35rem 0.55rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.55rem 0.85rem;
     border: 0;
-    border-radius: 0.25rem;
-    background: var(--brand-lime);
-    color: #111;
-    font-size: 0.72rem;
+    border-radius: 0.6rem;
+    background: #f2f2f2;
+    color: #171717;
+    font-size: 0.78rem;
+    font-weight: 700;
     line-height: 1.2;
+    transition: background-color 160ms ease, transform 160ms ease;
+}
+
+.job-toggle::after {
+    content: "→";
+    font-size: 1rem;
+}
+
+.job-toggle[aria-expanded="true"]::after {
+    content: "↑";
 }
 
 .job-toggle:hover,
 .job-toggle:focus-visible {
-    background: #e6ea00;
+    background: var(--brand-lime);
+    transform: translateY(-1px);
+}
+
+.job-card-footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 0.85rem;
 }
 
 .job-status {
     display: inline-block;
-    margin-bottom: 0.55rem;
-    padding: 0.25rem 0.65rem;
+    flex: 0 0 auto;
+    margin: 0;
+    padding: 0.28rem 0.55rem;
     border-radius: 999px;
     color: #111;
-    font-size: 0.65rem;
+    font-size: 0.58rem;
     font-weight: 700;
     line-height: 1.2;
     text-transform: uppercase;
@@ -974,7 +1100,7 @@ main {
 .job-details p {
     margin: 0;
     color: #d0d0d0;
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     line-height: 1.55;
 }
 
@@ -1367,15 +1493,8 @@ main {
         white-space: nowrap;
     }
 
-    .job-card {
-        grid-template-columns: 1fr;
-    }
-
     .job-artwork {
-        grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr);
-        grid-template-rows: 1fr;
-        align-items: center;
-        min-height: 7rem;
+        min-height: 8rem;
     }
 
     .job-preview {
