@@ -85,7 +85,8 @@
             <p class="profile-eyebrow">PERFIL DA COMUNIDADE</p>
             <h1 id="profileName">Fulano da Silva</h1>
             <p class="profile-role" id="profileRole">
-              Técnico de som <span aria-hidden="true">·</span> São Paulo, SP
+              <span id="profileProfession">Técnico de som</span>
+              <span id="profileLocationSummary">· São Paulo, Brasil</span>
             </p>
           </div>
           <div class="profile-actions">
@@ -387,7 +388,7 @@
                         Mostrar mais
                       </button>
                     </div>
-                    <span class="job-status job-status--canceled">Cancelado</span>
+                    <span style="background-color: #ff4d4d;" class="job-status job-status--canceled">Cancelado</span>
                     <p class="job-description">
                       Operação de áudio e monitoração para apresentações no
                       palco principal do festival.
@@ -494,21 +495,31 @@
               <span class="sidebar-dot" aria-hidden="true"></span>
             </div>
             <dl class="profile-details">
-              <div>
+              <div id="profileLocationDetail">
                 <dt>LOCALIZAÇÃO</dt>
-                <dd>São Paulo, Brasil</dd>
+                <dd id="profileLocation">São Paulo, Brasil</dd>
               </div>
               <div>
                 <dt>ÁREA DE ATUAÇÃO</dt>
-                <dd>Sonorização e produção de áudio</dd>
+                <dd id="profileArea">Sonorização e produção de áudio</dd>
               </div>
               <div>
                 <dt>NA COMUNIDADE DESDE</dt>
                 <dd>Janeiro de 2024</dd>
               </div>
-              <div>
+              <div id="profileLanguagesDetail">
                 <dt>IDIOMAS</dt>
-                <dd>Português · Inglês</dd>
+                <dd id="profileLanguages">Português · Inglês</dd>
+              </div>
+              <div id="profileEmailDetail">
+                <dt>E-MAIL DE CONTATO</dt>
+                <dd>
+                  <a
+                    class="profile-detail-link"
+                    id="profileEmail"
+                    href="mailto:fulano.silva@email.com"
+                  >fulano.silva@email.com</a>
+                </dd>
               </div>
             </dl>
           </section>
@@ -563,14 +574,52 @@
                 maxlength="70"
                 required
               />
-              <label class="profile-form-label" for="editRole">Profissão e cidade</label>
+              <label class="profile-form-label" for="editRole">Profissão</label>
               <input
                 class="form-control profile-form-control"
                 id="editRole"
                 name="role"
-                value="Técnico de som · São Paulo, SP"
+                value="Técnico de som"
                 maxlength="100"
                 required
+              />
+              <label class="profile-form-label" for="editLocation">Localização</label>
+              <input
+                class="form-control profile-form-control"
+                id="editLocation"
+                name="location"
+                value="São Paulo, Brasil"
+                maxlength="100"
+              />
+              <label class="profile-form-label" for="editEmail">
+                E-mail de contato (visível no perfil)
+              </label>
+              <input
+                class="form-control profile-form-control"
+                id="editEmail"
+                name="email"
+                type="email"
+                value="fulano.silva@email.com"
+                maxlength="254"
+              />
+              <label class="profile-form-label" for="editArea">Área de atuação</label>
+              <input
+                class="form-control profile-form-control"
+                id="editArea"
+                name="area"
+                value="Sonorização e produção de áudio"
+                maxlength="120"
+                required
+              />
+              <label class="profile-form-label" for="editLanguages">
+                Idiomas (separe por vírgula)
+              </label>
+              <input
+                class="form-control profile-form-control"
+                id="editLanguages"
+                name="languages"
+                value="Português, Inglês"
+                maxlength="120"
               />
               <label class="profile-form-label" for="editBio">Sobre você</label>
               <textarea
@@ -607,15 +656,26 @@
     <script>
       const profileFeedback = document.querySelector("#profileFeedback");
       const profileName = document.querySelector("#profileName");
-      const profileRole = document.querySelector("#profileRole");
+      const profileProfession = document.querySelector("#profileProfession");
+      const profileLocationSummary = document.querySelector(
+        "#profileLocationSummary",
+      );
+      const profileLocation = document.querySelector("#profileLocation");
+      const profileArea = document.querySelector("#profileArea");
+      const profileLanguages = document.querySelector("#profileLanguages");
+      const profileEmail = document.querySelector("#profileEmail");
       const profileBio = document.querySelector("#profileBio");
       const editProfileForm = document.querySelector("#editProfileForm");
       const editProfileModal = document.querySelector("#editProfileModal");
 
       editProfileModal.addEventListener("show.bs.modal", () => {
         editProfileForm.elements.name.value = profileName.textContent.trim();
-        editProfileForm.elements.role.value = profileRole.textContent
-          .replace(/\s+/g, " ")
+        editProfileForm.elements.role.value = profileProfession.textContent.trim();
+        editProfileForm.elements.location.value = profileLocation.textContent.trim();
+        editProfileForm.elements.email.value = profileEmail.textContent.trim();
+        editProfileForm.elements.area.value = profileArea.textContent.trim();
+        editProfileForm.elements.languages.value = profileLanguages.textContent
+          .replace(/\s*·\s*/g, ", ")
           .trim();
         editProfileForm.elements.bio.value = profileBio.textContent
           .replace(/\s+/g, " ")
@@ -627,15 +687,32 @@
         const formData = new FormData(editProfileForm);
         const name = formData.get("name").trim();
         const role = formData.get("role").trim();
+        const location = formData.get("location").trim();
+        const email = formData.get("email").trim();
+        const area = formData.get("area").trim();
+        const languages = formData.get("languages")
+          .split(",")
+          .map((language) => language.trim())
+          .filter(Boolean)
+          .join(" · ");
         const bio = formData.get("bio").trim();
 
-        if (!name || !role || !bio) {
+        if (!name || !role || !area || !bio) {
           profileFeedback.textContent = "Preencha todos os campos para salvar.";
           return;
         }
 
         profileName.textContent = name;
-        profileRole.textContent = role;
+        profileProfession.textContent = role;
+        profileLocationSummary.textContent = location ? `· ${location}` : "";
+        profileLocation.textContent = location;
+        profileLocation.closest("div").hidden = !location;
+        profileArea.textContent = area;
+        profileLanguages.textContent = languages;
+        profileLanguages.closest("div").hidden = !languages;
+        profileEmail.textContent = email;
+        profileEmail.href = email ? `mailto:${email}` : "";
+        profileEmail.closest("div").hidden = !email;
         profileBio.textContent = bio;
         bootstrap.Modal.getOrCreateInstance(editProfileModal).hide();
         profileFeedback.textContent = "Perfil atualizado nesta visualização.";

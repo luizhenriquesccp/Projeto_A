@@ -1130,6 +1130,11 @@ main {
     font-size: 0.78rem;
 }
 
+.profile-detail-link {
+    color: var(--brand-lime);
+    overflow-wrap: anywhere;
+}
+
 .sidebar-dot {
     width: 0.6rem;
     height: 0.6rem;
